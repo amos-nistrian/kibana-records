@@ -57,8 +57,12 @@ for i in range(len(recordOfTheDay)):
 	# get city and state
 	# export as csv
 with open('locations.txt', 'r') as f:
-    locationRecords = json.load(f)
-    print(len(locationRecords))
+    allLocationRecords = json.load(f)
+    print(len(allLocationRecords))
 
+for i in range(len(allLocationRecords)):
 
-
+	# get the city 
+	
+	print(allLocationRecords[i]['FIELD13'])
+	print(allLocationRecords[i]['FIELD14'])
