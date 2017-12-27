@@ -61,19 +61,25 @@ with open('locations.txt', 'r') as f:
     print(len(allLocationRecords))
 
 for i in range(len(allLocationRecords)):
+	# skip the first
+	if i == 0:
+		continue
+	else:
+		print(i)
+		# get the city 
+		city = allLocationRecords[i]['FIELD13']
 
-	# get the city 
-	city = allLocationRecords[i]['FIELD13']
+		# get the state
+		state = allLocationRecords[i]['FIELD14']
 
-	# get the state
-	state = allLocationRecords[i]['FIELD14']
+		# get the sap
+		sap = allLocationRecords[i]['FIELD4']
 
-	# get the sap
-	sap = allLocationRecords[i]['FIELD4']
+		# if sap is only 3 digits prepend 0
+		if (len(allLocationRecords[i]['FIELD4']) < 4):
+			sap = '0' + sap
+			#print("record", i+1)
+			print("PREPENDINGGGGGGGGGGGGGGGGGGGGGGGGGGG")
+			print(sap)
 
-	# if sap is only 3 digits prepend 0
-	if (len(allLocationRecords[i]['FIELD4']) < 4):
-		sap = '0' + sap
-		print("record", i+1)
-		print("PREPENDONGGGGGGGGGGGGGGGGGGGGGGGGGGG")
 		print(sap)
