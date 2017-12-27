@@ -28,6 +28,15 @@ for i in range(len(recordOfTheDay)):
 		print("make was unknown")
 		phoneEvent.append("unknown")
 
+	# getting recieved time
+	phoneEvent.append(sourceDict["received_at"])
+
+	# getting imei
+	if 'imei' in sourceDict:
+  		phoneEvent.append("yes")
+	else:
+  		phoneEvent.append("no")
+
 	
 
 
