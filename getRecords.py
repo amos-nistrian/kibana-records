@@ -9,13 +9,11 @@ arrayOfAllPhoneEventsForTheDay = []
 for i in range(len(recordOfTheDay)):	
 	# make a phone event array
 	phoneEvent = []
-	print(i+1)
 
 	sourceDict = recordOfTheDay[i]["_source"]
 
 	# getting device type
 	if 'device_type' in sourceDict:
-  		print(sourceDict["device_type"])
   		phoneEvent.append(sourceDict["device_type"])
 	else:
   		phoneEvent.append("Android")
@@ -33,7 +31,6 @@ for i in range(len(recordOfTheDay)):
 	if 'imei' in sourceDict:
   		phoneEvent.append("yes")
 	else:
-		print("APPENDONG NO")
 		phoneEvent.append("no")
 
 	# getting sap
@@ -49,20 +46,19 @@ for i in range(len(recordOfTheDay)):
 		sapVal = "" 
 		for i in range (4):
 			sapVal += message[i+1+startIndex]
-			print ("sap =", sapVal)
 			phoneEvent.append(sapVal)
 		
 	# getting coupler_id
 	if 'coupler_id' not in sourceDict:	
-		print("COUPLER NOT FOUNDDDDDDDDDDDDD")
 		phoneEvent.append(0)
 	else:
-		print("COUPLER ID IS", sourceDict["coupler_id"])
 		phoneEvent.append(sourceDict["coupler_id"])
 
-
-
-
+	# get city and state
+	# export as csv
+with open('locations.txt', 'r') as f:
+    locationRecords = json.load(f)
+    print(len(locationRecords))
 
 
 
